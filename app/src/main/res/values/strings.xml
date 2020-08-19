@@ -1,8 +1,11 @@
 <resources>
     <string name="app_name">MyApplication1</string>
-    <string name="question_text">Virtus Pro или NaVi?</string>
-    <string name="answer_VP">VP</string>
-    <string name="answer_NaVi">NaVi</string>
-    <string name="VP_toast">Всё равно проиграют на TI</string>
-    <string name="NaVi_toast">Вернуть бы 2011 год</string>
+    <string name="question_text1">Мёд сладкий?</string>
+    <string name="question_text2">Трава красная?</string>
+    <string name="question_text3">5 * 5 = 22?</string>
+    <string name="question_text4">Я научусь программировать на Android?</string>
+    <string name="correct">Да</string>
+    <string name="incorrect">Нет</string>
+    <string name="correct_toast">Верно!</string>
+    <string name="incorrect_toast">Неверно!</string>
 </resources>
