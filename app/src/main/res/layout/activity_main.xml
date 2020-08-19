@@ -6,10 +6,10 @@
     android:orientation="vertical">
 
     <TextView
+        android:id="@+id/question_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="25dp"
-        android:text="@string/question_text"
         android:textSize="24sp" />
 
 
@@ -19,17 +19,17 @@
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/VP_btn"
+            android:id="@+id/true_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/answer_VP"
+            android:text="@string/correct"
             android:textSize="18sp" />
 
         <Button
-            android:id="@+id/NaVi_btn"
+            android:id="@+id/false_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/answer_NaVi"
+            android:text="@string/incorrect"
             android:textSize="18sp" />
     </LinearLayout>
 
