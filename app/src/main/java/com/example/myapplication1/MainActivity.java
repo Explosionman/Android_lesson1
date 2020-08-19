@@ -1,7 +1,9 @@
 package com.example.myapplication1;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
 
     private Button true_btn;
     private Button false_btn;
+    private Button getAnswerBtn;
     private TextView questionView;
     private Question[] questions = new Question[]{
             new Question(R.string.question_text1, true),
@@ -25,10 +28,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        if (savedInstanceState != null) currentIndex = savedInstanceState.getInt("currentIndex", 0);
 
         true_btn = (Button) findViewById(R.id.true_btn);
         false_btn = (Button) findViewById(R.id.false_btn);
         questionView = (TextView) findViewById(R.id.question_view);
+        getAnswerBtn = (Button) findViewById(R.id.get_answer);
 
         true_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,7 +48,6 @@ public class MainActivity extends AppCompatActivity {
                 updateQuestion();
             }
         });
-
         false_btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -57,6 +61,15 @@ public class MainActivity extends AppCompatActivity {
                 updateQuestion();
             }
         });
+        getAnswerBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, AnswerActivity.class);
+                intent.putExtra("answer", questions[currentIndex].isAnswer());
+                startActivity(intent);
+            }
+        });
+
 
         updateQuestion();
     }
@@ -73,5 +86,11 @@ public class MainActivity extends AppCompatActivity {
         } else {
             Toast.makeText(MainActivity.this, R.string.incorrect_toast, Toast.LENGTH_SHORT).show();
         }
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle savedInstanceState) {
+        super.onSaveInstanceState(savedInstanceState);
+        savedInstanceState.putInt("currentIndex", currentIndex);
     }
 }
